@@ -1,0 +1,63 @@
+.container {
+  margin: auto;
+  width: 800px;
+}
+
+.container_header {
+  background-color: #AAAAAA;
+  height: 130px;
+  font-size: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.container_content {
+  margin-bottom: 20px;
+}
+
+.container_footer {
+  background-color: #AAAAAA;
+  height: 80px;
+  padding: 20px;
+}
+
+.obj_content {
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.obj_content:hover {
+  background-color: #FFFFDD;
+  border: 1px solid;
+}
+
+input[type=submit] {
+  width: 200px;
+  height: 80px;
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+input[type=reset] {
+  width: 200px;
+  height: 80px;
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+tr:nth-of-type(odd) {
+  background-color: #FFDDDD;
+}
+
+tr:nth-of-type(even) {
+  background-color: #DDDDFF;
+}
+
+th {
+  background-color: #9999FF;
+}
