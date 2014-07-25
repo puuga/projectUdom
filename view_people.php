@@ -1,5 +1,7 @@
 <?php // form_input.php ?>
 
+<?php include 'db_connect.php'; ?>
+
 <!DOCTYPE html>
 
 <html>
@@ -42,6 +44,16 @@
         ระบบบันทึกข้อมูล สำหรับงานมุทิตาจิตครูอุดม
       </div>
       <div class="container_content">
+        <?php
+          // sql
+          $sql = "select distinct firstname from people";
+          $result = mysqli_query($conn, $sql);
+          $rowcount=mysqli_num_rows($result);
+          echo "count = ".$rowcount;
+          //$result = mysqli_query($conn, $sql);
+        ?>
+      </div>
+      <div class="container_content">
         <table border="1">
           <thead>
             <tr>
@@ -66,11 +78,11 @@
           </thead>
           <tbody>
             <?php
-              include 'db_connect.php';
+
               // sql
               $sql = "select * from people";
 
-              $result = mysqli_query($conn, $sql);
+              //$result = mysqli_query($conn, $sql);
               if ($result = mysqli_query($conn, $sql)) {
                 while($row = mysqli_fetch_array($result)) {
                   echo "<tr>";
