@@ -1,4 +1,4 @@
-<?php // form_input.php ?>
+<?php // view_people.php ?>
 
 <?php include 'db_connect.php'; ?>
 
@@ -46,7 +46,7 @@
       <div class="container_content">
         <?php
           // sql
-          $sql = "select distinct firstname from people";
+          $sql = "SELECT distinct firstname FROM udom_project.people where firstname != '';";
           $result = mysqli_query($conn, $sql);
           $rowcount=mysqli_num_rows($result);
           echo "count = ".$rowcount;
