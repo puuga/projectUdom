@@ -16,8 +16,8 @@
     <script type="text/javascript">
 
 
-      function viewPeople(name) {
-        window.location = "view_people_detail.php?firstname="+name;
+      function viewPeople(firstname, lastname) {
+        window.location = "view_people_detail.php?firstname="+firstname+"&lastname="+lastname;
       }
 
     </script>
@@ -31,7 +31,7 @@
       <div class="container_content">
         <?php
           // sql
-          $sql = "SELECT distinct firstname FROM udom_project.people where firstname != '';";
+          $sql = "SELECT distinct firstname, lastname FROM udom_project.people where firstname != '';";
           $result = mysqli_query($conn, $sql);
           $rowcount=mysqli_num_rows($result);
           //echo "count = ".$rowcount;
@@ -43,7 +43,7 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>ชื่อ</th>
+              <th>ชื่อ สกุล</th>
             </tr>
           </thead>
           <tbody>
@@ -51,14 +51,14 @@
               $i = 0;
 
               // sql
-              $sql = "SELECT distinct firstname FROM udom_project.people where firstname != '';";
+              $sql = "SELECT distinct firstname, lastname FROM udom_project.people where firstname != '';";
 
               //$result = mysqli_query($conn, $sql);
               if ($result = mysqli_query($conn, $sql)) {
                 while($row = mysqli_fetch_array($result)) {
                   echo "<tr>";
                   echo "<td>".++$i."</td>";
-                  echo "<td onclick='viewPeople(".$row['firstname'].")'>".$row['firstname']."</td>";
+                  echo "<td onclick='viewPeople(\"".$row['firstname']."\", \"".$row['lastname']."\")'>".$row['firstname']." ".$row['lastname']."</td>";
                   echo "</tr>";
                 }
               } else {
@@ -74,6 +74,6 @@
         develop by Siwawes Wongcharoen
       </div>
     </div>
-  </body>
+  </body
 
 </html>

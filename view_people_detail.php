@@ -1,6 +1,20 @@
-<?php // view_people_v2.php ?>
+<?php // view_people_detail.php ?>
 
-<?php include 'view_people_detail.php'; ?>
+<?php include 'db_connect.php'; ?>
+
+<?php
+
+function endsWith($haystack, $needle) {
+  if ($needle === "" ) {
+    return true;
+  }
+  if (strcasecmp(substr($haystack, -strlen($needle)), $needle) == 0) {
+    return true;
+  }
+  return false;
+}
+
+?>
 
 <!DOCTYPE html>
 
@@ -40,12 +54,12 @@
               $data = array();
 
               // sql
-              $sql = "SELECT * FROM udom_project.people where firstname == '".$_GET["firstname"]."';";
+              $sql = "SELECT * FROM udom_project.people where firstname like '".$_GET["firstname"]."' and lastname like '".$_GET["lastname"]."';";
 
               //$result = mysqli_query($conn, $sql);
               if ($result = mysqli_query($conn, $sql)) {
                 while($row = mysqli_fetch_array($result)) {
-                  $data["image_path"] = $row['image_path'] == '' ? $data["image_path"] : $row['image_path'];
+                  $data["image_path"] = endsWith($data["image_path"],".jpg") ? $data["image_path"] : $row['image_path'];
                   $data["firstname"] = $row['firstname'] == '' ? $data["firstname"] : $row['firstname'];
                   $data["lastname"] = $row['lastname'] == '' ? $data["lastname"] : $row['lastname'];
                   $data["nickname"] = $row['nickname'] == '' ? $data["nickname"] : $row['nickname'];
@@ -60,7 +74,7 @@
                   $data["phone"] = $row['phone'] == '' ? $data["phone"] : $row['phone'];
                   $data["address"] = $row['address'] == '' ? $data["address"] : $row['address'];
                   $data["email"] = $row['email'] == '' ? $data["email"] : $row['email'];
-                  $data["birthday"] = $row['birthday'] == '' ? $data["birthday"] : $row['birthday'];
+                  $data["birthday"] = $row['birthday'] == '0000-00-00' ? $data["birthday"] : $row['birthday'];
                   $data["sms"] = $row['sms'] == '' ? $data["sms"] : $row['sms'];
                 }
               } else {
@@ -71,7 +85,7 @@
             ?>
             <tr>
               <td>รูป</td>
-              <td><?php echo "<a href='" . $row['image_path'] . "'><img src='" . $row['image_path'] . "' height='100px'></a>"; ?></td>
+              <td><?php echo "<a href='".$data['image_path']."'><img src='".$data['image_path']."' height='200px'></a>"; ?></td>
             </tr>
             <tr>
               <td>ชื่อ</td>
