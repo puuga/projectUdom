@@ -36,8 +36,6 @@ function endsWith($haystack, $needle) {
   <body>
     <div class="container" style="width:100%">
       <div class="container_content">
-      </div>
-      <div class="container_content">
         <table border="1">
           <thead>
             <tr>
