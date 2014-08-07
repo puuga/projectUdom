@@ -60,4 +60,9 @@ tr:nth-of-type(even) {
 
 th {
   background-color: #9999FF;
+  padding: 2px;
+}
+
+td {
+  padding: 2px;
 }

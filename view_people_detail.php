@@ -35,9 +35,6 @@ function endsWith($haystack, $needle) {
 
   <body>
     <div class="container" style="width:100%">
-      <div class="container_header">
-        ระบบข้อมูล สำหรับงานมุทิตาจิตครูอุดม
-      </div>
       <div class="container_content">
       </div>
       <div class="container_content">
@@ -153,9 +150,6 @@ function endsWith($haystack, $needle) {
             </tr>
           </tbody>
         </table>
-      </div>
-      <div class="container_footer">
-        develop by Siwawes Wongcharoen
       </div>
     </div>
   </body>
